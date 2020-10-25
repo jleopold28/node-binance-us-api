@@ -69,7 +69,7 @@ let api = function Binance( options = {} ) {
             if( typeof urls.combineStream === 'string' ) combineStream = urls.combineStream;
         }
         if ( Binance.options.useServerTime ) {
-            apiRequest( base + 'v1/time', {}, function ( error, response ) {
+            publicRequest( base + 'v3/time', {}, function ( error, response ) {
                 Binance.info.timeOffset = response.serverTime - new Date().getTime();
                 //Binance.options.log("server time set: ", response.serverTime, Binance.info.timeOffset);
                 if ( callback ) callback();
